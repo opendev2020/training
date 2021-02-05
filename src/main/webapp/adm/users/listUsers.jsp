@@ -54,6 +54,28 @@
 			}
 		});
 		
+		$("#importForm").validate({
+			submitHandler : function(form) {
+				var btn = loading($("#importForm input[type='submit']"))
+				if(btn.isloading){
+					return;
+				}
+				$(form).ajaxSubmit({
+					dataType : "json",
+					success : function(data) {
+						alert(data.retMsg);
+						$("#importModal").modal("hide");
+						vum.showData(page);
+						unloading(btn);
+					},
+					error : function(data) {
+						alert(data.status);
+						unloading(btn);
+					}
+				});
+			}
+		});
+		
 	});
 
 	function add() {
@@ -78,6 +100,12 @@
 				}
 			});
 		}
+	}
+	
+	function openImportForm() {
+		$('#importForm').attr("action", "importAjax");
+		$('#importModalLabel').text("导入用户");
+		$('#importModal').modal("toggle");
 	}
 
 	function load(data) {
@@ -119,6 +147,8 @@
 				<span class="glyphicon glyphicon-search"></span>
 			</button>
 			<button class="btn btn-primary" onClick="add();">添加用户</button>
+			<button class="btn btn-primary" onClick="openImportForm()"><span class="glyphicon glyphicon-import"></span>导入用户</button>
+			<button class="btn btn-primary" onClick="location.href='export'"><span class="glyphicon glyphicon-export"></span>导出用户</button>
 		</div>
 		<div class="modal fade" id="addModal" tabindex="-1" role="dialog"
 			aria-labelledby="addModalLabel">
@@ -145,6 +175,36 @@
 								<div class="col-sm-9">
 									<input type="text" name="name" id="name" class="form-control"
 										placeholder="姓名">
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">关闭</button>
+							<input type="submit" class="btn btn-primary" value="提交">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<div class="modal fade" id="importModal" tabindex="-1" role="dialog"
+			aria-labelledby="importModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="importModalLabel">导入用户</h4>
+					</div>
+					<form id="importForm" method="post" action="" enctype="multipart/form-data" class="form-horizontal">
+						<div class="modal-body">
+							<div class="form-group">
+								<label for="file" class="col-sm-3 control-label">Excel文件</label>
+								<div class="col-sm-9">
+									<input type="file" name="file" id="file" class="form-control">
 								</div>
 							</div>
 						</div>

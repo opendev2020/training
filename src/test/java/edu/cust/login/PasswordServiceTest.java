@@ -88,6 +88,7 @@ public class PasswordServiceTest {
 			ex.printStackTrace();
 		}
 		PasswordService ps = new PasswordService();
+		System.out.println("***" + ps.encryptPassword("111"));
 		//3b05b11ec6560715
 		boolean flag = PasswordServiceTest.validatePassword("233219", "3b05b11ec6560715b809f5c0bdcf8e48d52076466aa1bc10d098f348");
 		System.out.println(flag);

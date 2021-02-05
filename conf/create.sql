@@ -3,7 +3,7 @@ use training;
 drop table if exists c_user;
 create table c_user (
   c_username varchar(32),
-  c_password varchar(32),
+  c_password varchar(60),
   c_name varchar(30),
   primary key (c_username)
 );
@@ -42,7 +42,7 @@ create table c_role_perm (
   FOREIGN KEY (c_perm_id) REFERENCES c_perm(c_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-insert into c_user (c_username, c_password, c_name) values ('111', '111', '张三');
+insert into c_user (c_username, c_password, c_name) values ('111', '0e6a053944e52ac34333e6e6df5846a7bcd42787418d5fccd40cd23f', '张三');
 insert into c_role (c_id, c_name) values ('sa', '超级管理员');
 insert into c_perm (c_id, c_name) values ('yhgl', '用户管理');
 insert into c_perm (c_id, c_name) values ('jsgl', '角色管理');
