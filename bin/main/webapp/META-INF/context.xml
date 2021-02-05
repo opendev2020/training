@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<!-- 本文件是为tomcat使用的，其他应用服务器用不到，它们有自己的配置方式 -->
+	
+	<!-- 定义数据库连接池 -->
+	<!--<Resource name="jdbc/demo" auth="Container" type="javax.sql.DataSource"
+		maxActive="100" maxIdle="30" maxWait="10000" username="javaweb"
+		password="javaweb" driverClassName="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/javaweb" />
+		
+	-->
+		
+	<Resource name="jdbc/exam" auth="Container" type="javax.sql.DataSource"
+        maxActive="30" maxIdle="10" maxWait="10000" username="exam"
+        password="cust" driverClassName="com.mysql.jdbc.Driver"
+        validationQuery="select 1+1" testOnBorrow="true"
+        url="jdbc:mysql://localhost:3306/exam" />
+	
+	<!--<Realm className="org.apache.catalina.realm.DataSourceRealm"
+		localDataSource="true" dataSourceName="jdbc/exam" userTable="c_user2"
+		userNameCol="c_user" userCredCol="c_pass" userRoleTable="c_user_role"
+		roleNameCol="c_role" />-->
+</Context>
