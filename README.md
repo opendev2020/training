@@ -1,6 +1,3 @@
-# training
- A basic framework for Java Web
- 
 # training入门使用文档
 
 ## 什么是training框架
@@ -22,6 +19,7 @@ training框架主要由java，javascript，css三大语言，各语言占比如�
 ### java
 
 - **本地搭建java运行环境**
+- **注意！该项目推荐jdk版本为1.8，若jdk版本不对，请在ide中修改对应版本，如果没有该版本，请在网络上下载**
 - 熟练掌握javaSE，即java的基础知识，[点击这里进入我推荐的入门视频网站](https://www.bilibili.com/video/BV12J41137hu)
 - 掌握基本的面向对象思想，对封装与继承两方面知识有正确的理解
 - 初步掌握springboot框架的结构,熟悉mvc设计模式和各个包的用途
@@ -58,7 +56,7 @@ training框架主要由java，javascript，css三大语言，各语言占比如�
 
 [![oJHid0.png](https://z3.ax1x.com/2021/12/01/oJHid0.png)](https://imgtu.com/i/oJHid0)
 
-2. 等待IDE将索引与依赖均编制完毕后，检查pom.xml是否有飘红,即是否缺少相应的maven依赖，如果有报错飘红，请百度搜寻相关资料解决环境配置问题。
+2. 等待IDE将索引与依赖均编制完毕后——**因为国际网络问题，这可能需要较长时间**。检查pom.xml是否有飘红,即是否缺少相应的maven依赖，如果有报错飘红，请百度搜寻相关资料解决环境配置问题。
 
    [![oJHFoV.png](https://z3.ax1x.com/2021/12/01/oJHFoV.png)](https://imgtu.com/i/oJHFoV)
 
@@ -66,7 +64,7 @@ training框架主要由java，javascript，css三大语言，各语言占比如�
 
    [![oJHpss.png](https://z3.ax1x.com/2021/12/01/oJHpss.png)](https://imgtu.com/i/oJHpss)
 
-   根据该信息我们可知道当前连接的是本地mysql数据库，没有配置数据库,故我们将账号密码改成本地数据库的账号密码
+   根据该信息我们可知道当前连接的是本地mysql数据库，没有配置数据库,故我们将账号密码改成本地数据库的账号密码——**以自己本地mysql创建的账号密码为准**。
 
    ```properties
    #以自己本地的账户为准
